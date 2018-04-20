@@ -6,7 +6,7 @@ database = DBConnection()
 
 @app.get('/')
 def index():
-    return static_file("index.html", root= "beanweb/public/")
+    return static_file("index.html", root= "")
 
 if __name__ == '__main__':
     run(app, host="localhost", port=8080)
