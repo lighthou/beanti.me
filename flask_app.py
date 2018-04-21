@@ -32,6 +32,10 @@ def connected():
 def index_jss():
     return send_from_directory("", "index.js")
 
+@app.route("/main.css")
+def main_css():
+    return send_from_directory("", "main.css")
+
 
 
 @app.route("/")
@@ -39,4 +43,4 @@ def index():
     return send_from_directory('', "index.html")
 
 if __name__ == '__main__':
-    socketio.run(app, host="localhost", port=8239)
+    socketio.run(app, host="localhost", port=8240)
