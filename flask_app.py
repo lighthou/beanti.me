@@ -14,7 +14,7 @@ socketio = SocketIO(app)
 def coffee_run():
     users = database.get_all_with_score_above(6)
     print(users)
-    socketio.emit("Coffee", "Someone wants coffee", room=users[0])
+    ignore = [socketio.emit("Coffee", "Someone wants coffee", room=user) for user in users]
 
 @socketio.on("change score")
 def change_score(data):
@@ -39,4 +39,4 @@ def index():
     return send_from_directory('', "index.html")
 
 if __name__ == '__main__':
-    socketio.run(app, host="localhost", port=8237)
+    socketio.run(app, host="localhost", port=8238)
