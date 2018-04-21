@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="bootstrap.min.css">
 <link rel="stylesheet" href="style.css">
 
-<div id="root"></div>
+<div id="root" align="center"></div>
 
 <script> Notification.requestPermission(); </script>
 <script type="text/javascript" src="index.js"></script>
@@ -18,11 +18,9 @@
 
             var name = {first:"Coffee", last:"Lover"};
 
-            if(localStorage.name){
+            if(localStorage.name) {
                 name = JSON.parse(localStorage.name);
             }
-
-            console.log(name);
 
             return {
                 name: name,
@@ -33,7 +31,7 @@
 
             return (
 
-            <div className="content">
+            <div className="content" align="center">
                 <div className="row">
                     <div className="col-4 col-centered">
                         <img className="logo" src="./logo.png" alt=""/>
@@ -41,15 +39,19 @@
                 </div>
                 <div className="row">
                     <div className="col-4 col-centered">
-                        <h1>Bean Time!</h1>
-                        <h2>{this.state.name.first} {this.state.name.last}</h2>
+                        <h1>
+                        <font size="100" color="white">Bean Time!</font>
+                        </h1>
+                        <h1>
+                        <font size="100" color="white">{this.state.name.first} {this.state.name.last}</font>
+                        </h1>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-4 col-centered">
                         <form>
                             <label>
-                                Name:
+                                <font color="white"><b>Name :       </b></font>
                                 <input type="text" name="name" />
                             </label>
                             <input type="submit" value="Submit" />
@@ -85,6 +87,14 @@ ReactDOM.render(
 <title>beanti.me</title>
 </head>
 <body>
+<style>
+    body {
+        background-image: url("http://static.simpledesktops.com/uploads/desktops/2015/03/21/coffee-pixels.png");
+        background-size: 2000px;
+        padding-top: 100px;
+
+    }
+</style>
 
 <!--<div class="ui block header">-->
     <!--<div class="content">-->
@@ -117,12 +127,13 @@ ReactDOM.render(
     <!--<div class="ui button">10</div>-->
 
   <!--</div>-->
-
+<div id ="root2" align ="center">
 <button id= "coffee_now" class="ui icon button">
   <i class="bell icon"></i>
 </button>
 
 <input id= "keeness" type="number" onload="setup()">
+</div>
 </body>
 
 
