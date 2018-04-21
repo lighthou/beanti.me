@@ -22,8 +22,10 @@ def onNotification(data):
 
 @app.get("/websocket")
 def websocket():
+    print("in webscoket")
     wsock = request.environ.get('wsgi.websocket')
     if not wsock:
+        print("did not work")
         abort(400, "Websocket Request failed")
 
     # TODO: find user_id and register them in database as well.
@@ -49,6 +51,12 @@ def css(filepath):
 def index():
    return static_file("index.html", root= "")
 
+from gevent.pywsgi import WSGIServer
+from geventwebsocket import WebSocketError
+from geventwebsocket.handler import WebSocketHandler
 
 if __name__ == '__main__':
-   run(app, host="localhost", port=8000)
+    run(app, host="localhost", port=8000)
+    server = WSGIServer(("0.0.0.0", 8080), app,
+                        handler_class=WebSocketHandler)
+    server.serve_forever()
