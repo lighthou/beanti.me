@@ -1,27 +1,74 @@
-
-<div id="root"></div>
+<head>
+    <!-- react -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
-<script> Notification.requestPermission(); </script>
+
+    <!-- semantic UI-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+
+
+    <!-- socket io -->
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
-<script src="./index.js" type="text/javascript"></script>
-<!--<script type="text/javascript" src="index.js"></script>-->
+
+    <!-- Our js-->
+    <script src="./index.js" type="text/javascript"></script>
 
 <title>beanti.me</title>
-<script type="text/babel">
-class Greeting extends React.Component {
-    render() {
-        return (<p>Hello world</p>);
-    }
-}
-ReactDOM.render(
-    <Greeting />,
-    document.getElementById('root')
-);
-</script>
+</head>
+<body>
 
-<button id="coffee_now">Click me</button>
+<!--<div class="ui block header">-->
+    <!--<div class="content">-->
+      <!--I want coffee now!-->
+    <!--</div>-->
 
+
+<!--</div>-->
+
+<!--<div class="ui block header">-->
+    <!--<i class="coffee icon"></i>-->
+    <!--<div class="content">-->
+      <!--How bad do you want coffee?-->
+    <!--</div>-->
+<!--</div>-->
+
+
+<!--<div class="ui hidden divider"></div>-->
+  <!--<div class="ui vertical buttons">-->
+    <!--<div class="ui button active">0</div>-->
+    <!--<div class="ui button">1</div>-->
+    <!--<div class="ui button">2</div>-->
+    <!--<div class="ui button">3</div>-->
+    <!--<div class="ui button">4</div>-->
+    <!--<div class="ui button">5</div>-->
+    <!--<div class="ui button">6</div>-->
+    <!--<div class="ui button">7</div>-->
+    <!--<div class="ui button">8</div>-->
+    <!--<div class="ui button">9</div>-->
+    <!--<div class="ui button">10</div>-->
+
+  <!--</div>-->
+
+<button id= "coffee_now" class="ui icon button">
+  <i class="bell icon"></i>
+</button>
 
 <input id= "keeness" type="number" onload="setup()">
+</body>
+
+
+<!--<script type="text/babel">-->
+<!--class Greeting extends React.Component {-->
+    <!--render() {-->
+        <!--return (<p>Hello world</p>);-->
+    <!--}-->
+<!--}-->
+<!--ReactDOM.render(-->
+    <!--<Greeting />,-->
+    <!--document.getElementById('root')-->
+<!--);-->
+<!--</script>
