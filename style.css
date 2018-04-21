@@ -1,0 +1,12 @@
+.app {
+    align-content: center;
+}
+
+.logo {
+    height: 30%;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
