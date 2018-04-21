@@ -32,9 +32,9 @@ def connected():
 def index_jss():
     return send_from_directory("", "index.js")
 
-@app.route("/main.css")
-def main_css():
-    return send_from_directory("", "main.css")
+@app.route("/<static>")
+def main_css(static):
+    return send_from_directory("", static)
 
 
 
