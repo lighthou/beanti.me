@@ -2,6 +2,12 @@ from bottle import Bottle, static_file, run, request, abort
 from DBConnection import DBConnection
 from WebSocketHandler import WebSocketHandler
 from NotificationData import NotificationData
+from threading import Thread
+from gevent import monkey; monkey.patch_all()
+
+from flask import Flask, render_template
+
+
 app = Bottle()
 database = DBConnection()
 webSockets = WebSocketHandler()
@@ -47,6 +53,10 @@ def js(filepath):
 def css(filepath):
     return static_file(filepath, root="")
 
+@app.get("<filepath:re:.*\.js>")
+def js(filepath):
+    return static_file(filepath, root="")
+
 @app.get('/')
 def index():
    return static_file("index.html", root= "")
@@ -55,8 +65,12 @@ from gevent.pywsgi import WSGIServer
 from geventwebsocket import WebSocketError
 from geventwebsocket.handler import WebSocketHandler
 
-if __name__ == '__main__':
-    run(app, host="localhost", port=8000)
-    server = WSGIServer(("0.0.0.0", 8080), app,
-                        handler_class=WebSocketHandler)
+def start_ws():
+    print('in start ws')
+    server = WSGIServer(("localhost", 8001), app)
     server.serve_forever()
+
+if __name__ == '__main__':
+    Thread(target= start_ws).start()
+    run(app, host="localhost", port=8000, server = 'gevent')
+

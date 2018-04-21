@@ -1,11 +1,14 @@
-new Notification("Ok");
+var socket = io.connect('http://' + document.domain + ':' + location.port);
+Notification.requestPermission();
 
-var ws = new WebSocket("ws:/localhost:8000/websocket");
 
-ws.onopen = function() {
-    ws.send("Hello, world");
-    alert("websocket open")
-};
-ws.onmessage = function (evt) {
-    alert(evt.data);
-};
+function buttonClicked(event) {
+    socket.emit("coffee run", "I want coffee")
+}
+
+
+socket.on("Coffee", function (event) {
+    new Notification("Coffee is on. Lets go! ");
+
+})
+
